@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LW1", "Algorithmization.vcxproj", "{D3E9FDFD-6756-4C26-94AD-B42E88A79613}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LW1", "LW1\Algorithmization.vcxproj", "{D3E9FDFD-6756-4C26-94AD-B42E88A79613}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LW2", "..\LW2\LW2.vcxproj", "{706C6848-7FB4-4BB1-B9EF-955112DE6143}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LW2", "LW2\LW2.vcxproj", "{706C6848-7FB4-4BB1-B9EF-955112DE6143}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
