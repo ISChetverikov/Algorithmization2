@@ -16,7 +16,7 @@ Cylinder::~Cylinder(){
 	
 }
 
-double Cylinder::GetRadius() {
+double Cylinder::GetRadius() const{
 	return this->radius;
 }
 
@@ -24,7 +24,7 @@ void Cylinder::SetRadius(int value) {
 	this->radius = value;
 }
 
-double Cylinder::GetHeight() {
+double Cylinder::GetHeight() const{
 	return this->height;
 }
 

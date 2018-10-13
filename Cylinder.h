@@ -11,10 +11,10 @@ public:
 	Cylinder(double radius, double height);
 	~Cylinder();
 
-	double GetRadius();
+	double GetRadius() const;
 	void SetRadius(int value);
 
-	double GetHeight();
+	double GetHeight() const;
 	void SetHeight(int value);
 
 	double GetSideSurfaceArea();
