@@ -1,5 +1,7 @@
 #include <iostream>
+#include <string>
 #include "Polynomial.h"
+#include "Volume.h"
 
 using namespace std;
 
@@ -54,9 +56,41 @@ void FirstTaskRoutine() {
 	return;
 }
 
+void SecondTackRoutine() {
+	Volume v1 = Volume(5, 6, 7);
+	Volume v2 = Volume(3, -1, -7);
+	Volume v3 = Volume();
+
+	cout << "Volume v1:" << endl;
+	cout << v1 << endl;
+
+	cout << "Volume v2:" << endl;
+	cout << v2 << endl << endl;
+
+	cout << "Adding volumes v1 and v2:" << endl;
+	cout << v1 + v2 << endl;
+
+	cout << "Substructing volumes v1 and v2:" << endl;
+	cout << v1 - v2 << endl;
+
+	cout << "Multiplying volumes v1 and v2:" << endl;
+	cout << v1 * v2 << endl << endl;
+
+	v3.SetA(500);
+	v3.SetB(0);
+	v3.SetC(-1000);
+
+	cout << "Volume v3 (output through the accessors): " << endl;
+	cout << "A: " + to_string(v3.GetA()) << endl;
+	cout << "B: " + to_string(v3.GetB()) << endl;
+	cout << "C: " + to_string(v3.GetC()) << endl;
+
+}
+
 int main() {
 	
-	FirstTaskRoutine();
+	//FirstTaskRoutine();
+	SecondTackRoutine();
 
 	return 0;
 }
