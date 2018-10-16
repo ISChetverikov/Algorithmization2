@@ -89,8 +89,8 @@ void SecondTackRoutine() {
 
 int main() {
 	
-	//FirstTaskRoutine();
-	SecondTackRoutine();
+	FirstTaskRoutine();
+	//SecondTackRoutine();
 
 	return 0;
 }
