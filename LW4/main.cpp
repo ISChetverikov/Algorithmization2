@@ -3,10 +3,21 @@
 #include "Stack.h"
 
 int main() {
+    const int SIZE = 10;
+    auto stack = Stack<int>(SIZE);
 
-    auto stack = new Stack<int>();
+    int i = 0;
+    for (auto it = stack.begin(); it != stack.end(); it++)
+    {
+        *it = i;
+        i++;
+    }
 
-    std::cout << "" << std::endl;
+    for (int i = 0; i < SIZE; i++)
+    {
+        std::cout << stack.Pop() << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }

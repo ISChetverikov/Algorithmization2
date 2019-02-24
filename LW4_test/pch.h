@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "algorithm"
+#include <algorithm>
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include "gmock/gmock-matchers.h"

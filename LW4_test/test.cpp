@@ -3,11 +3,13 @@
 
 #define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING
 
-
 using testing::ElementsAreArray;
 TEST(StackTest, BasicInterfaceTesting) {
-    auto stack = Stack<int>();
+
     const int SIZE = 10;
+
+    auto stack = Stack<int>(SIZE);
+
     int clearStackLength = stack.Length();
     bool clearStackIsEmpty = stack.isEmpty();
 
@@ -40,26 +42,25 @@ TEST(StackTest, BasicInterfaceTesting) {
     ASSERT_THAT(outputValuesArr, ElementsAreArray(inputValuesArr));
 }
 
-TEST(StackTest, ResizingStackTesting) {
-    auto stack = Stack<int>();
-    const int SIZE = 20;
+using testing::ElementsAreArray;
+TEST(StackTest, OutputIteratorTesting) {
 
-    int inputValuesArr[SIZE] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 };
+    const int SIZE = 10;
+    auto stack = Stack<int>(SIZE);
+
+    int inputValuesArr[SIZE] = { 1,2,3,4,5,6,7,8,9,0 };
     int outputValuesArr[SIZE];
 
-    for (int i = 0; i < SIZE; i++) {
-        stack.Push(inputValuesArr[i]);
+    int i = 0;
+    for (auto it = stack.begin(); it != stack.end(); ++it)
+    {
+        *it = inputValuesArr[i];
+        i++;
     }
-
-    int fullStackLength = stack.Length();
-    bool fullStackIsEmpty = stack.isEmpty();
 
     for (int i = SIZE - 1; i >= 0; i--) {
         outputValuesArr[i] = stack.Pop();
     }
-
-    EXPECT_EQ(fullStackLength, SIZE);
-    EXPECT_FALSE(fullStackIsEmpty);
 
     ASSERT_THAT(outputValuesArr, ElementsAreArray(inputValuesArr));
 }
