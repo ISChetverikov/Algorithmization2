@@ -19,3 +19,19 @@ public:
     }
 };
 
+class QueueIsEmptyException : public exception {
+public:
+    const char * what() const throw ()
+    {
+        return "Stack is empty!";
+    }
+};
+
+class QueueIsFullException : public exception {
+public:
+    const char * what() const throw ()
+    {
+        return "Stack is full!";
+    }
+};
+

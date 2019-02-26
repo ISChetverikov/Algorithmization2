@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "../LW4/Stack.h"
+#include "../LW4/Queue.h"
 
 #define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING
 
@@ -42,7 +43,6 @@ TEST(StackTest, BasicInterfaceTesting) {
     ASSERT_THAT(outputValuesArr, ElementsAreArray(inputValuesArr));
 }
 
-using testing::ElementsAreArray;
 TEST(StackTest, OutputIteratorTesting) {
 
     const int SIZE = 10;
@@ -60,6 +60,81 @@ TEST(StackTest, OutputIteratorTesting) {
 
     for (int i = SIZE - 1; i >= 0; i--) {
         outputValuesArr[i] = stack.Pop();
+    }
+
+    ASSERT_THAT(outputValuesArr, ElementsAreArray(inputValuesArr));
+}
+
+TEST(QueueTest, BasicInterfaceTesting) {
+
+    const int SIZE = 10;
+
+    auto q = Queue<int>(SIZE);
+
+    int clearQueueLength = q.Length();
+    bool clearQueueIsEmpty = q.isEmpty();
+
+    int inputValuesArr[SIZE] = { 1,2,3,4,5,6,7,8,9,0 };
+    int outputValuesArr[SIZE];
+
+    for (int i = 0; i < SIZE; i++) {
+        q.Enque(inputValuesArr[i]);
+    }
+
+    int fullQueueLength = q.Length();
+    bool fullQueueIsEmpty = q.isEmpty();
+
+    for (int i = 0; i < SIZE; i++) {
+        outputValuesArr[i] = q.Dequeue();
+    }
+
+    int clearedQueueLength = q.Length();
+    bool clearedQueueIsEmpty = q.isEmpty();
+
+    EXPECT_EQ(clearQueueLength, 0);
+    EXPECT_TRUE(clearQueueIsEmpty);
+
+    EXPECT_EQ(fullQueueLength, SIZE);
+    EXPECT_FALSE(fullQueueIsEmpty);
+
+    EXPECT_EQ(clearedQueueLength, 0);
+    EXPECT_TRUE(clearedQueueIsEmpty);
+
+    ASSERT_THAT(outputValuesArr, ElementsAreArray(inputValuesArr));
+}
+
+TEST(QueueTest, ForwardIteratorTesting) {
+
+    const int SIZE = 10;
+
+    auto q = Queue<int>(SIZE);
+
+    int inputValuesArr[SIZE] = { 1,2,3,4,5,6,7,8,9,0 };
+    int outputValuesArr[SIZE];
+
+    for (int i = 0; i < SIZE; i++) {
+        q.Enque(inputValuesArr[i]);
+    }
+
+    int i = 0;
+    for (auto it = q.begin(); it != q.end(); ++it)
+    {
+        *it = *it * 2;
+        i++;
+    }
+
+    for (auto it = q.begin(); it != q.end(); ++it);
+
+    i = 0;
+    for (auto it = q.begin(); it != q.end(); ++it)
+    {
+        outputValuesArr[i] = *(it.operator->());
+        i++;
+    }
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        inputValuesArr[i] *= 2;
     }
 
     ASSERT_THAT(outputValuesArr, ElementsAreArray(inputValuesArr));
